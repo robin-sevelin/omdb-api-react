@@ -3,9 +3,11 @@ import { IMovieProps } from '../models/IMovieProps';
 export const AppMovie = (props: IMovieProps) => {
   const html = props.MovieProps.map((movie) => (
     <div key={movie.imdbID}>
-      <h3>{movie.Title}</h3>
-      <img src={movie.Poster} alt='' />
+      <div className='movie'>
+        <h3>{movie.Title}</h3>
+        <img src={movie.Poster} alt={movie.Title} width='250' height='350' />
+      </div>
     </div>
   ));
-  return <>{html}</>;
+  return <div className='movies'>{html}</div>;
 };

@@ -1,7 +1,7 @@
 export const AppHeader = () => {
   return (
     <header>
-      <h1>my header</h1>
+      <h1>OMDb movie search</h1>
     </header>
   );
 };

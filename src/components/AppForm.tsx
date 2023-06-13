@@ -16,9 +16,9 @@ export const AppForm = (props: IFormProps) => {
   };
 
   return (
-    <>
+    <div className='form'>
       <input type='text' onChange={handleChange} />
       <button onClick={handleClick}>search</button>
-    </>
+    </div>
   );
 };
