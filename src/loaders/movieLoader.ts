@@ -1,9 +1,10 @@
 import { ActionFunctionArgs, ParamParseKey, Params } from 'react-router-dom';
-import { IMovie } from '../models/IMovie';
 import axios from 'axios';
 
+import { IMovieExt } from '../models/IMovieEtx';
+
 export interface IMovieLoader {
-  movie: IMovie;
+  MovieExt: IMovieExt;
 }
 
 const BASE_URL = `https://www.omdbapi.com/?apikey=${
@@ -19,9 +20,9 @@ interface Args extends ActionFunctionArgs {
 }
 
 export const movieLoader = async ({ params }: Args) => {
-  const response = await axios.get<IMovie>(`${BASE_URL}i=${params.id}`);
+  const response = await axios.get<IMovieExt>(`${BASE_URL}i=${params.id}`);
 
-  const data: IMovieLoader = { movie: response.data };
+  const data: IMovieLoader = { MovieExt: response.data };
 
   return data;
 };
