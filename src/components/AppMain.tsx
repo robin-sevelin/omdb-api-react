@@ -1,23 +1,24 @@
-import { useState, useEffect } from 'react';
-import { IMovie } from '../models/IMovie';
-import { getMovies } from '../services/OmdbService';
 import { AppForm } from './AppForm';
 import { AppMovies } from './AppMovies';
+import { useLoaderData } from 'react-router-dom';
+import { IMoviesLoader } from '../loaders/moviesLoader';
+import { useEffect, useState } from 'react';
+import { IMovie } from '../models/IMovie';
+import { getMovies } from '../services/OmdbService';
 
 export const AppMain = () => {
   const [movies, setMovies] = useState<IMovie[]>([]);
+  const { movies: moviesFromLoader } = useLoaderData() as IMoviesLoader;
 
   useEffect(() => {
-    const searchText = localStorage.getItem('searchText') || 'harry';
-    getMovies(searchText).then((moviesFromApi) => {
-      setMovies(moviesFromApi);
-    });
-  });
+    if (moviesFromLoader) {
+      setMovies(moviesFromLoader);
+    }
+  }, [moviesFromLoader]);
 
   const handleSubmit = async (searchText: string) => {
     const movieData = await getMovies(searchText);
     setMovies(movieData);
-    localStorage.setItem('searchText', searchText);
   };
   return (
     <main>
