@@ -2,7 +2,7 @@ import axios from 'axios';
 import { IResponse } from '../models/IResponse';
 import { IMovie } from '../models/IMovie';
 
-const BASE_URL = `https://www.omdbapi.com/?apikey=${
+export const BASE_URL = `https://www.omdbapi.com/?apikey=${
   import.meta.env.VITE_API_KEY
 }&`;
 

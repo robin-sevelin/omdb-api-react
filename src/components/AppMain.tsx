@@ -19,6 +19,7 @@ export const AppMain = () => {
   const handleSubmit = async (searchText: string) => {
     const movieData = await getMovies(searchText);
     setMovies(movieData);
+    localStorage.setItem('searchMovie', searchText);
   };
   return (
     <main>

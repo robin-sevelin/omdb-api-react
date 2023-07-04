@@ -1,15 +1,11 @@
 import { ActionFunctionArgs, ParamParseKey, Params } from 'react-router-dom';
 import axios from 'axios';
-
 import { IMovieExt } from '../models/IMovieEtx';
+import { BASE_URL } from '../services/OmdbService';
 
 export interface IMovieLoader {
   MovieExt: IMovieExt;
 }
-
-const BASE_URL = `https://www.omdbapi.com/?apikey=${
-  import.meta.env.VITE_API_KEY
-}&`;
 
 const pathNames = {
   movieDetail: '/about/:id',
