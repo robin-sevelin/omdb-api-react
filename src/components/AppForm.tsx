@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from 'react';
+import { FormEvent, useState } from 'react';
 
 interface IFormProps {
   onSubmit: (text: string) => void;
@@ -7,18 +7,20 @@ interface IFormProps {
 export const AppForm = (props: IFormProps) => {
   const [input, setInput] = useState('');
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setInput(e.target.value);
-  };
-
-  const handleClick = () => {
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault();
     props.onSubmit(input);
+    setInput('');
   };
 
   return (
-    <div className='form'>
-      <input type='text' onChange={handleChange} />
-      <button onClick={handleClick}>search</button>
-    </div>
+    <form className='form' onSubmit={handleSubmit}>
+      <input
+        value={input}
+        type='text'
+        onChange={(e) => setInput(e.target.value)}
+      />
+      <button disabled={input === ''}>search</button>
+    </form>
   );
 };

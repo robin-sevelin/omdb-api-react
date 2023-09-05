@@ -7,8 +7,8 @@
 body {
   min-height: 100vh;
   position: relative;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  background-color: rgb(47, 61, 69);
+  font-family: 'Rajdhani', sans-serif;
+  background-color: rgb(28, 35, 40);
   color: white;
 }
 
@@ -52,7 +52,10 @@ main {
 }
 
 img {
-  margin-top: 1rem;
+  margin-block: 1rem;
+  width: 280px;
+  height: 350px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 footer {
@@ -66,22 +69,68 @@ footer {
 a {
   text-decoration: none;
   color: white;
-  margin-top: 1rem;
-}
-
-a:hover {
-  color: red;
 }
 
 .about-movie {
-  max-width: 500px;
+  max-width: 600px;
   margin: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  background-color: antiquewhite;
+  color: black;
+  padding: 2rem;
+  font-size: 1.5rem;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
-h3 {
+h3,
+p {
   margin-bottom: 2rem;
+}
+
+button {
+  font-family: 'Rajdhani', sans-serif;
+  align-items: center;
+  background-clip: padding-box;
+  background-color: #467a98;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+  box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  font-size: 16px;
+  font-weight: 600;
+  justify-content: center;
+  line-height: 1.25;
+  margin: 0;
+  min-height: 3rem;
+  padding: calc(0.875rem - 1px) calc(1.5rem - 1px);
+  position: relative;
+  text-decoration: none;
+  transition: all 250ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  width: auto;
+}
+
+button:hover,
+button:focus {
+  background-color: #fb8332;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+}
+
+button:hover {
+  transform: translateY(-1px);
+}
+
+button:active {
+  background-color: #c85000;
+  box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
+  transform: translateY(0);
 }
